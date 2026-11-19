@@ -1,0 +1,75 @@
+{
+  "project_id": "11938",
+  "private_name": "Review_Exam_6_Tasks",
+  "reward_per_assignment": 0.6,
+  "assignment_max_duration_seconds": 600,
+  "auto_accept_solutions": true,
+  "filter": {
+    "and": [
+      {
+        "or": [
+          {
+            "operator": "IN",
+            "value": "RU",
+            "key": "languages",
+            "category": "profile"
+          }
+        ]
+      },
+      {
+        "or": [
+          {
+            "key": "21781",
+            "operator": "EQ",
+            "value": null,
+            "category": "skill"
+          }
+        ]
+      },
+      {
+        "or": [
+          {
+            "key": "21782",
+            "operator": "EQ",
+            "value": null,
+            "category": "skill"
+          }
+        ]
+      }
+    ]
+  },
+  "quality_control": {
+    "configs": [
+      {
+        "collector_config": {
+          "type": "GOLDEN_SET",
+          "parameters": {
+            "history_size": 6
+          }
+        },
+        "rules": [
+          {
+            "conditions": [
+              {
+                "key": "total_answers_count",
+                "operator": "GTE",
+                "value": 6
+              }
+            ],
+            "action": {
+              "type": "SET_SKILL_FROM_OUTPUT_FIELD",
+              "parameters": {
+                "from_field": "correct_answers_rate",
+                "skill_id": "21782"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "defaults": {
+    "default_overlap_for_new_task_suites": 20,
+    "default_overlap_for_new_tasks": 20
+  }
+}

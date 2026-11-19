@@ -1,0 +1,29 @@
+{
+  "model": {
+    "name": "owlv2_base",
+    "backend": "owl",
+    "repo": "google/owlv2-base-patch16-ensemble",
+    "revision": "cfd3195ba4ea9592eec887ded089f4c08eff231d",
+    "prompts": [
+      "a photo of a butterfly",
+      "a photo of a moth"
+    ],
+    "threshold": 0.15,
+    "nms_iou": 0.7,
+    "qwen_max_side": 640,
+    "max_new_tokens": 1024
+  },
+  "runtime": {
+    "device": "cuda:3",
+    "gpu": "NVIDIA RTX A4000",
+    "cuda": "13.0",
+    "dtype": "torch.float32",
+    "python": "3.12.3",
+    "versions": {
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "transformers": "4.57.6",
+      "Pillow": "12.3.0"
+    }
+  }
+}

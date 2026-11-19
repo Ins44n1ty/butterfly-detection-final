@@ -1,0 +1,28 @@
+{
+  "input_spec": {
+    "photo_id": {
+      "type": "string",
+      "required": false,
+      "hidden": true
+    },
+    "image_url": {
+      "type": "url",
+      "required": true
+    }
+  },
+  "output_spec": {
+    "status": {
+      "type": "string",
+      "required": true,
+      "allowed_values": [
+        "boxes",
+        "empty",
+        "load_error"
+      ]
+    },
+    "boxes": {
+      "type": "json",
+      "required": true
+    }
+  }
+}

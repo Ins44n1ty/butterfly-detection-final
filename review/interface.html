@@ -1,0 +1,28 @@
+
+<div class="review-container">
+  <div class="status-banner">{{status_banner}}</div>
+
+  <div class="canvas-stage">
+    <div class="img-wrapper">
+      <img class="review-main-img" src="{{image}}" alt="Photo {{photo_id}}" />
+      <div class="bbox-overlay-layer"></div>
+    </div>
+    <div class="img-load-error" style="display:none;">
+      Ошибка загрузки изображения! Выберите пункт «Ошибка загрузки изображения» ниже.
+    </div>
+  </div>
+
+  <div class="controls-panel">
+    <div class="controls-title">Проверьте разметку на фотографии и выберите вердикт (клавиши 1–5):</div>
+    {{field type="radio" name="verdict" value="ok" label="Всё верно (все бабочки/моли выделены точно, либо их действительно нет)" hotkey="1"}}
+    {{field type="radio" name="verdict" value="error_missed" label="Пропущена бабочка / моль (не выделена рамкой)" hotkey="2"}}
+    {{field type="radio" name="verdict" value="error_bad_box" label="Неточная рамка (обрезана бабочка, слишком широкая или 1 рамка на 2 бабочек)" hotkey="3"}}
+    {{field type="radio" name="verdict" value="error_extra" label="Лишняя рамка (выделена гусеница, другое насекомое, тень или дубль)" hotkey="4"}}
+    {{field type="radio" name="verdict" value="image_error" label="Ошибка загрузки изображения" hotkey="5"}}
+
+    <div class="comment-block">
+      <div class="comment-label">Краткий комментарий (необязательно — укажите, в чём ошибка):</div>
+      {{field type="textarea" name="comment" placeholder="Например: в правом углу сидит бабочка, она не выделена" rows=2}}
+    </div>
+  </div>
+</div>

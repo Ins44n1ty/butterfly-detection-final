@@ -1,0 +1,14 @@
+{
+  "name": "qwen3_vl_2b",
+  "backend": "qwen_torch",
+  "repo": "Qwen/Qwen3-VL-2B-Instruct",
+  "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+  "prompts": [
+    "Detect every adult butterfly or moth in this image. Include partially visible individuals. Draw one tight box around the visible parts of each individual, including visible antennae and legs. Exclude caterpillars, pupae, other insects and shadows. Return only a JSON array. Each item must be an object like {\"bbox_2d\":[x_min,y_min,x_max,y_max]} with coordinates normalized to 0–1000. Return [] if there are no adult butterflies or moths."
+  ],
+  "threshold": 0.0,
+  "nms_iou": 0.7,
+  "qwen_max_side": 640,
+  "max_new_tokens": 1024,
+  "target": "adult_butterflies_with_moths"
+}

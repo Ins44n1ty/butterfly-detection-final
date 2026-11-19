@@ -1,0 +1,14 @@
+{
+  "type": "classic",
+  "assets": {
+    "script_urls": [
+      "$TOLOKA_ASSETS/js/toloka-handlebars-templates.js"
+    ]
+  },
+  "settings": {
+    "showSubmit": true,
+    "showInstructions": true,
+    "showSkip": true,
+    "showFullscreen": true
+  }
+}

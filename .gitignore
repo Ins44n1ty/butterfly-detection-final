@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+.env.*
+*.pem
+*.key
+*.zip
+.DS_Store
+data/images/
+data/benchmark/
+data/contest/images/
+data/contest/runs/
+data/contest/*.json
+data/contest/*.errors.jsonl
+
