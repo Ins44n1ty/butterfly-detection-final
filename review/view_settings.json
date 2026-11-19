@@ -1,8 +1,0 @@
-{
-  "type": "classic",
-  "assets": {
-    "script_urls": [
-      "$TOLOKA_ASSETS/js/toloka-handlebars-templates.js"
-    ]
-  }
-}

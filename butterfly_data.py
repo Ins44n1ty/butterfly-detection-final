@@ -92,12 +92,10 @@ def load_contest_dataset(path):
     return photos
 
 
-def team_data(root=ROOT, images_dir=None, gold_path=None):
-    manifest = json.loads((root / "data/team/manifest.json").read_text(encoding="utf-8"))
-    gold_content = (root / "data/team/reference_draft.jsonl").read_text(encoding="utf-8")
-    changelog = (root / "data/review/resolutions.csv").read_text(encoding="utf-8")
-    if gold_path is not None:
-        gold_content = gold_path.read_text(encoding="utf-8-sig")
+def team_data(root=ROOT, images_dir=None):
+    manifest = json.loads((root / "data/manifest.json").read_text(encoding="utf-8"))
+    gold_content = (root / "data/reference.jsonl").read_text(encoding="utf-8")
+    changelog = (root / "data/review_status.csv").read_text(encoding="utf-8")
     gold_rows = indexed(json.loads(line) for line in gold_content.splitlines() if line.strip())
     reviews = indexed(csv.DictReader(io.StringIO(changelog)))
     local = local_images(images_dir) if images_dir else {}
