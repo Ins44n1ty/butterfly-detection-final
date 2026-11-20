@@ -32,4 +32,12 @@ pip install -r requirements.txt
 jupyter lab compare_models.ipynb
 ```
 
+По умолчанию ноутбук сравнивает сохранённые предсказания. Для повторного инференса задайте в первой ячейке `USE_SAVED = False` и `DEVICE = "cuda"`, затем выполните ячейки по порядку. Фотографии скачиваются автоматически. Нужна видеокарта NVIDIA с подходящей сборкой PyTorch.
+
+Чтобы получить предсказания выбранной модели на экзаменационном датасете, передайте выданный файл в `submit.py`. Настройки победителя уже сохранены.
+
+```bash
+python submit.py dataset.jsonl -o submission.jsonl --device cuda
+```
+
 [Сравнение моделей](compare_models.ipynb) · [Материалы разметки](https://github.com/Ins44n1ty/butterfly-detection-final/releases/download/materials/butterfly-materials.zip)
