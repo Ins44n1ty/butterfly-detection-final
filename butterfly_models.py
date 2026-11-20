@@ -31,13 +31,14 @@ class ModelConfig:
     name: str
     backend: str
     repo: str
-    revision: str
+    revision: str | None
     prompts: tuple[str, ...]
     threshold: float = 0.0
-    nms_iou: float = 0.70
+    nms_iou: float | None = 0.70
     qwen_max_side: int = 640
     max_new_tokens: int = 1024
     target: str = CONTEST_TARGET
+    text_threshold: float = 0.25
 
     def to_dict(self):
         return {**asdict(self), "prompts": list(self.prompts)}
@@ -74,7 +75,16 @@ def benchmark_configs():
         "qwen3_vl_2b", "qwen_torch", "Qwen/Qwen3-VL-2B-Instruct",
         "89644892e4d85e24eaac8bacfd4f463576704203", CONTEST_PROMPTS["qwen_torch"],
     )
+    base = ModelConfig(
+        "grounding_dino_base", "dino", "IDEA-Research/grounding-dino-base",
+        None, ("butterfly .",), threshold=0.25, nms_iou=None,
+    )
     return {
+        "grounding_dino_base": (base,),
+        "grounding_dino_base_optimal": (
+            replace(base, name="grounding_dino_base_optimal", threshold=0.35,
+                    text_threshold=0.35, nms_iou=0.50),
+        ),
         "grounding_dino": (dino, replace(dino, name="grounding_dino_tiny_020", threshold=0.20)),
         "owlv2": (owl,),
         "qwen": (qwen,),
@@ -107,7 +117,9 @@ def iou(a: Box, b: Box) -> float:
 def select_boxes(candidates: list[Candidate], config: ModelConfig) -> list[Box]:
     selected = []
     for box, score in sorted(candidates, key=lambda item: item[1], reverse=True):
-        if score >= config.threshold and all(iou(box, other) <= config.nms_iou for other in selected):
+        if score >= config.threshold and (config.nms_iou is None or all(
+            iou(box, other) <= config.nms_iou for other in selected
+        )):
             selected.append(box)
     return selected
 
@@ -170,7 +182,7 @@ class Detector:
             output = self.model(**inputs)
             if config.backend == "dino":
                 result = self.processor.post_process_grounded_object_detection(
-                    output, inputs.input_ids, threshold=threshold, text_threshold=0.25,
+                    output, inputs.input_ids, threshold=threshold, text_threshold=config.text_threshold,
                     target_sizes=[(height, width)],
                 )[0]
             else:

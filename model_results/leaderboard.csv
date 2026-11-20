@@ -1,4 +1,16 @@
 model,target,slice,photos,tp,fp,fn,object_errors,precision,recall,f1_iou50,f1_iou75,negative_photos,fp_on_negative,negative_photos_with_fp,technical_errors,inference_seconds,median_ms
+grounding_dino_base,adult_butterflies_with_moths,все фото,400,351,122,10,132,0.7420718816067653,0.9722991689750693,0.841726618705036,0.6546762589928058,67,82,64,0,148.18,
+grounding_dino_base,adult_butterflies_with_moths,принятые на ревью,237,219,55,4,59,0.7992700729927007,0.9820627802690582,0.8812877263581489,0.7323943661971831,35,37,32,0,,
+grounding_dino_base,adult_butterflies_with_moths,без рамок,67,0,82,0,82,0.0,0.0,0.0,0.0,67,82,64,0,,
+grounding_dino_base,adult_butterflies_with_moths,одна рамка,326,318,29,8,37,0.9164265129682997,0.9754601226993865,0.9450222882615156,0.7786032689450223,0,0,0,0,,
+grounding_dino_base,adult_butterflies_with_moths,несколько рамок,7,33,11,2,13,0.75,0.9428571428571428,0.8354430379746836,0.27848101265822783,0,0,0,0,,
+grounding_dino_base,adult_butterflies_with_moths,мелкие объекты,19,40,10,3,13,0.8,0.9302325581395349,0.8602150537634409,0.34408602150537637,0,0,0,0,,
+grounding_dino_base_optimal,adult_butterflies_with_moths,все фото,400,342,73,19,92,0.8240963855421687,0.9473684210526315,0.8814432989690721,0.6958762886597938,67,55,54,0,148.5,
+grounding_dino_base_optimal,adult_butterflies_with_moths,принятые на ревью,237,213,32,10,42,0.8693877551020408,0.9551569506726457,0.9102564102564102,0.7735042735042735,35,25,25,0,,
+grounding_dino_base_optimal,adult_butterflies_with_moths,без рамок,67,0,55,0,55,0.0,0.0,0.0,0.0,67,55,54,0,,
+grounding_dino_base_optimal,adult_butterflies_with_moths,одна рамка,326,317,14,9,23,0.9577039274924471,0.9723926380368099,0.9649923896499238,0.791476407914764,0,0,0,0,,
+grounding_dino_base_optimal,adult_butterflies_with_moths,несколько рамок,7,25,4,10,14,0.8620689655172413,0.7142857142857143,0.78125,0.3125,0,0,0,0,,
+grounding_dino_base_optimal,adult_butterflies_with_moths,мелкие объекты,19,33,4,10,14,0.8918918918918919,0.7674418604651163,0.825,0.375,0,0,0,0,,
 grounding_dino_tiny,adult_butterflies_with_moths,все фото,400,333,125,28,153,0.7270742358078602,0.9224376731301939,0.8131868131868132,0.652014652014652,67,83,67,0,141.96663891378557,356.756483000936
 grounding_dino_tiny,adult_butterflies_with_moths,принятые на ревью,237,206,72,17,89,0.7410071942446043,0.9237668161434978,0.8223552894211577,0.7025948103792415,35,47,35,0,84.35897737194318,357.3724160087295
 grounding_dino_tiny,adult_butterflies_with_moths,без рамок,67,0,83,0,83,0.0,0.0,0.0,0.0,67,83,67,0,24.537777177465614,362.63485200470313

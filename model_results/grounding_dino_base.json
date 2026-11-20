@@ -1,0 +1,22 @@
+{
+  "model": {
+    "name": "grounding_dino_base",
+    "backend": "dino",
+    "repo": "IDEA-Research/grounding-dino-base",
+    "prompts": [
+      "butterfly ."
+    ],
+    "threshold": 0.25,
+    "nms_iou": null,
+    "target": "adult_butterflies_with_moths",
+    "revision": null,
+    "text_threshold": 0.25
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "vram_gb": 8.0,
+    "python": "3.13.0",
+    "total_seconds": 148.18
+  }
+}
